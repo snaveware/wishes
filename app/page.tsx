@@ -1,113 +1,177 @@
-import Image from 'next/image'
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Rubik_Bubbles } from "next/font/google";
+import { FaRegCopy } from "react-icons/fa6";
+import Link from "next/link";
+
+const dancing_script = Rubik_Bubbles({ weight: "400", subsets: ["latin"] });
+
+export enum Relationship {
+  Friend = "friend",
+  Partner = "partner",
+  Mother = "mother",
+  Father = "father",
+  Son = "son",
+  Daughter = "daughter",
+  Colleague = "colleague",
+  Mentor = "mentor",
+  Brother = "brother",
+  Sister = "sister",
+  Idol = "idol",
+  // You can add more relationships here
+}
 
 export default function Home() {
+  const [to, setTo] = useState<null | string>();
+  const [from, setFrom] = useState<string | null>(null);
+  const [relationship, setRelationship] = useState<null | Relationship>();
+  const [link, setLink] = useState<string | null>();
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams();
+
+    if (to) {
+      searchParams.set("t", to);
+    }
+
+    if (from) {
+      searchParams.set("f", from);
+    }
+
+    if (relationship) {
+      searchParams.set("r", relationship);
+    }
+
+    setLink(location.origin + "/wish?" + searchParams.toString());
+  }, [to, from, relationship]);
+
+  useEffect(() => {
+    const _to = localStorage.getItem("to");
+    const _from = localStorage.getItem("from");
+    const _relationship = localStorage.getItem("relationship");
+
+    if (_to) {
+      setTo(_to);
+    }
+
+    if (_from) {
+      setFrom(_from);
+    }
+
+    if (_relationship) {
+      setRelationship(_relationship as Relationship);
+    }
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main
+      style={{
+        backgroundImage: `url('/christmas-holidays-composition.jpg')`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        width: "100%",
+        height: "100vh", // Set the height as needed
+      }}
+      className="flex min-h-screen max-h-screen overflow-hidden p-4 "
+    >
+      <div className="w-5/6 md:w-3/4 lg:w-1/3 m-auto p-3 bg-red-500/90 rounded-lg shadow-lg">
+        <h1 className="text-white text-center text-4xl lg:text-5xl border-b border-white/50 mb-2">
+          Spread the wishes
+        </h1>
+        <div className="px-4 py-2  text-2xl rounded-full max-w-full grid grid-cols-12 gap-2">
+          <p className="col-span-3 text-green-950">To: </p>
+          <input
+            onChange={(e) => {
+              const value = e.target.value;
+              setTo(value);
+              localStorage.setItem("to", value as string);
+            }}
+            value={to || ""}
+            name="to"
+            className={`${dancing_script.className} col-span-9 max-w-full bg-transparent   text-white active:bg-transparent border-b border-white/30 outline-none active:outline-none focus:border-white/80`}
+          />
+        </div>
+
+        <div className="px-4 py-2  text-2xl rounded-full grid grid-cols-12 max-w-full">
+          <p className="col-span-3 text-green-950">From: </p>
+          <input
+            onChange={(e) => {
+              const value = e.target.value;
+              setFrom(value);
+              localStorage.setItem("from", value as string);
+            }}
+            value={from || ""}
+            name="from"
+            className={`${dancing_script.className} col-span-9 max-w-full bg-transparent  text-white active:bg-transparent border-b border-white/30 outline-none active:outline-none focus:border-white/80`}
+          />
+        </div>
+        <div className="p-2 flex flex-row flex-wrap max-w-full overflow-y-auto bg-blue">
+          {Object.values(Relationship).map((_relationship) => {
+            return (
+              <span
+                onClick={() => {
+                  setRelationship(_relationship);
+                  localStorage.setItem("relationship", _relationship as string);
+                }}
+                className={`cursor-pointer px-4 py-1 rounded-full border border-white/50 m-1  capitalize
+                ${
+                  relationship == _relationship
+                    ? "bg-white/90 text-red-500"
+                    : "bg-transparent  text-white"
+                }
+                `}
+              >
+                {_relationship}
+              </span>
+            );
+          })}
+        </div>
+
+        <div className="mt-3 grid grid-cols-12 gap-2 justify-center items-center border border-white/30 rounded-full px-4 py-1">
+          <p className="w-full max-w-full overflow-x-auto overflow-y-hidden px-3 py-1 text-sm col-span-9 text-white">
+            {link}
+          </p>
+
+          <p
+            onClick={() => {
+              if (link) {
+                navigator.clipboard.writeText(link);
+                alert("Link Copied to clipboard");
+              }
+            }}
+            className="flex flex-row flex-nowrap justify-center items-center w-full col-span-3 cursor-pointer px-4 py-1 rounded-full bg-white hover:bg-white/80 active:bg-white/90"
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+            <FaRegCopy
+              width={20}
+              height={20}
+              className="text-lg text-red-500 pr-2"
             />
-          </a>
+            <span>Copy</span>
+          </p>
+        </div>
+        <div className="flex flex-row flex-wrap justify-center items-center ">
+          <Link
+            href={`${link}`}
+            className="mx-1 mt-3 shadow-md flex flex-row flex-nowrap justify-center items-center col-span-3 cursor-pointer px-4 py-1 rounded-full bg-white hover:bg-white/80 active:bg-white/90"
+          >
+            <span>Preview Wishes</span>
+          </Link>
+          <p
+            onClick={() => {
+              setTo(null);
+              setFrom(null);
+              setRelationship(null);
+              localStorage.removeItem("to");
+              localStorage.removeItem("from");
+              localStorage.removeItem("relationship");
+            }}
+            className="mx-1 mt-3 shadow-md flex flex-row flex-nowrap justify-center items-center col-span-3 cursor-pointer px-4 py-1 rounded-full bg-white hover:bg-white/80 active:bg-white/90"
+          >
+            <span>Clear</span>
+          </p>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
 }
