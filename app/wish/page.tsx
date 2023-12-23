@@ -27,7 +27,7 @@ enum Relationship {
   // You can add more relationships here
 }
 
-export default function Home() {
+export default function Wish() {
   //   const videoRef = useRef<LegacyRef<HTMLVideoElement>>();
 
   //   useEffect(() => {

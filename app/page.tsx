@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const dancing_script = Rubik_Bubbles({ weight: "400", subsets: ["latin"] });
 
-export enum Relationship {
+enum Relationship {
   Friend = "friend",
   Partner = "partner",
   Mother = "mother",
