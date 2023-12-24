@@ -18,7 +18,7 @@ enum Relationship {
   Mentor = "mentor",
   Brother = "brother",
   Sister = "sister",
-  Idol = "idol",
+  Hero = "hero",
   // You can add more relationships here
 }
 
@@ -67,7 +67,7 @@ export default function Home() {
   return (
     <main
       style={{
-        backgroundImage: `url('/christmas-holidays-composition.jpg')`,
+        backgroundImage: `url("morgane-le-breton-Ym4my-Xj8EY-unsplash.jpg")`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         width: "100%",

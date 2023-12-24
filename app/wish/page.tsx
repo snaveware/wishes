@@ -36,7 +36,7 @@ const songs = [
   {
     link: "/jingle-bells-xmas-background-music-60-second-for-short-video-vlog-178759.mp3",
     name: "Jingle Bells",
-    image: "/christmas-holidays-composition.jpg",
+    image: "morgane-le-breton-Ym4my-Xj8EY-unsplash.jpg",
   },
   {
     link: "/joy-to-the-world-156945.mp3",
@@ -219,7 +219,7 @@ export default function Wish() {
       >
         <source src="/video.mp4" type="video/mp4" />
       </video> */}
-      <div className="text-2xl absolute z-10 w-5/6 md:w-3/4  lg:w-1/3 p-4 bg-red-500/80 rounded-lg shadow-lg -translate-y-10 md:-translate-y-0">
+      <div className="text-2xl absolute z-10 w-5/6 md:w-3/4  lg:w-1/3 p-4 bg-red-500/80 rounded-lg shadow-lg ">
         {searchParams.get("t") && (
           <p className="col-span-3">
             <span className=" text-green-950">To: </span>
@@ -264,39 +264,7 @@ export default function Wish() {
         </Link>
       </div>
 
-      <div className="fixed bottom-5 md:bottom-0 left-o w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-red-500 h-20 md:h-10 rounded-full px-4 py-1 my-2 flex flex-col md:flex-row flex-nowrap justify-start items-center">
-        {/* {!isPlaying && (
-          <span
-            onClick={() => {
-              audioRef.current?.play();
-              setIsPlaying(true);
-            }}
-            className="cursor-pointer"
-          >
-            <MdOutlinePlayCircleOutline
-              width={20}
-              height={20}
-              className="text-3xl text-white hover:text-white/80"
-            />
-          </span>
-        )} */}
-
-        {/* {isPlaying && (
-          <span
-            onClick={() => {
-              audioRef.current?.pause();
-              setIsPlaying(false);
-            }}
-            className="cursor-pointer"
-          >
-            <MdOutlinePauseCircle
-              width={20}
-              height={20}
-              className="text-3xl text-white hover:text-white/80"
-            />
-          </span>
-        )} */}
-
+      <div className="fixed bottom-0 left-o w-5/6 md:w-3/4 lg:w-1/2 mx-auto bg-red-500/50 h-20 md:h-10 rounded-full px-4 py-1 my-2 flex justify-center items-center">
         <audio
           ref={audioRef}
           controls
@@ -313,9 +281,9 @@ export default function Wish() {
           <source src={songLink} type="audio/mpeg" />
         </audio>
 
-        <span className="pl-3 text-ellipsis max-w-full max-h-full text-white">
-          {songName}
-        </span>
+        {/* <span className="pl-3  max-w-full max-h-full text-white text-ellipsis">
+          {songName.length > 10 ? songName.substring(0, 10) + "..." : ""}
+        </span> */}
       </div>
     </main>
   );
