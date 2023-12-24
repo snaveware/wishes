@@ -264,7 +264,7 @@ export default function Wish() {
         </Link>
       </div>
 
-      <div className="fixed bottom-0 left-o w-5/6 md:w-3/4 lg:w-1/2 mx-auto bg-red-500/50 h-20 md:h-10 rounded-full px-4 py-1 my-2 flex justify-center items-center">
+      <div className="fixed bottom-0 left-o w-5/6 md:w-3/4 lg:w-1/2 mx-auto bg-red-500/50 h-10 rounded-full px-4 py-1 my-2 flex justify-center items-center">
         <audio
           ref={audioRef}
           controls
