@@ -75,7 +75,7 @@ export default function Home() {
       }}
       className="flex min-h-screen max-h-screen overflow-hidden p-4 "
     >
-      <div className="w-5/6 md:w-3/4 lg:w-1/3 m-auto p-3 bg-red-500/90 rounded-lg shadow-lg">
+      <div className="z-10 11/12 md:w-3/4 lg:w-1/3 m-auto p-3 bg-red-500/90 rounded-lg shadow-lg ">
         <h1 className="text-white text-center text-4xl lg:text-5xl border-b border-white/50 mb-2">
           Spread the wishes
         </h1>
@@ -129,7 +129,7 @@ export default function Home() {
         </div>
 
         <div className="mt-3 grid grid-cols-12 gap-2 justify-center items-center border border-white/30 rounded-full px-4 py-1">
-          <p className="w-full max-w-full overflow-x-auto overflow-y-hidden px-3 py-1 text-sm col-span-9 text-white">
+          <p className="w-full max-w-full overflow-x-auto overflow-y-hidden px-3 py-1 text-sm col-span-8 text-white">
             {link}
           </p>
 
@@ -140,7 +140,7 @@ export default function Home() {
                 alert("Link Copied to clipboard");
               }
             }}
-            className="flex flex-row flex-nowrap justify-center items-center w-full col-span-3 cursor-pointer px-4 py-1 rounded-full bg-white hover:bg-white/80 active:bg-white/90"
+            className="flex flex-row flex-nowrap justify-center items-center w-full col-span-4 cursor-pointer px-4 py-1 rounded-full bg-white hover:bg-white/80 active:bg-white/90"
           >
             <FaRegCopy
               width={20}
@@ -171,6 +171,110 @@ export default function Home() {
             <span>Clear</span>
           </p>
         </div>
+      </div>
+      <div className="max-h-full max-w-full absolute min-h-full min-w-full">
+        <ul className="g-snows" id="jsi-snows">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
     </main>
   );

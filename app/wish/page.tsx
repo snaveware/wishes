@@ -27,6 +27,29 @@ enum Relationship {
   // You can add more relationships here
 }
 
+const songs = [
+  {
+    link: "/we-wish-you-a-merry-christmas-xmas-background-short-music-30-second-178228.mp3",
+    name: "We wish you a merry christmas",
+    image: "/merry-christmas-red-background.jpg",
+  },
+  {
+    link: "/jingle-bells-xmas-background-music-60-second-for-short-video-vlog-178759.mp3",
+    name: "Jingle Bells",
+    image: "/christmas-holidays-composition.jpg",
+  },
+  {
+    link: "/joy-to-the-world-156945.mp3",
+    name: "Joy To the World",
+    image: "/red-fruits.jpg",
+  },
+  {
+    link: "/silent-night_medium.mp3",
+    name: "Silent Night",
+    image: "/christmas-balls.jpg",
+  },
+];
+
 export default function Wish() {
   //   const videoRef = useRef<LegacyRef<HTMLVideoElement>>();
 
@@ -47,17 +70,146 @@ export default function Wish() {
   }, [audioRef]);
   const [isPlaying, setIsPlaying] = useState(false);
   const searchParams = useSearchParams();
+  const [background, setBackground] = useState(songs[0].image);
+  const [songLink, setSongLink] = useState(songs[0].link);
+  const [songName, setSongName] = useState(songs[0].name);
+  const [songIndex, setSongIndex] = useState(0);
+
+  useEffect(() => {
+    console.log("change song", songIndex, songs[songIndex]);
+    setSongLink(songs[songIndex].link);
+    setSongName(songs[songIndex].name);
+    setBackground(songs[songIndex].image);
+  }, [songIndex]);
+
+  useEffect(() => {
+    audioRef.current?.load();
+    audioRef.current?.play();
+  }, [songLink]);
+
   return (
     <main
       style={{
-        backgroundImage: `url('/christmas-holidays-composition.jpg')`,
+        backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         width: "100%",
         height: "100vh", // Set the height as needed
       }}
       className="min-h-screen max-h-screen overflow-hidden flex justify-center items-center"
+      // onClick={() => {
+      //   if (songIndex === 3) {
+      //     setSongIndex(0);
+      //   } else {
+      //     setSongIndex(songIndex + 1);
+      //   }
+      // }}
     >
+      <div className="max-h-full max-w-full absolute min-h-full min-w-full">
+        <ul className="g-snows" id="jsi-snows">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+
       {/* <video
         ref={videoRef}
         autoPlay
@@ -67,17 +219,18 @@ export default function Wish() {
       >
         <source src="/video.mp4" type="video/mp4" />
       </video> */}
-      <div className="text-2xl absolute z-10 w-5/6 md:w-3/4  lg:w-1/3 m p-4 bg-red-500/80 rounded-lg shadow-lg">
+      <div className="text-2xl absolute z-10 w-5/6 md:w-3/4  lg:w-1/3 p-4 bg-red-500/80 rounded-lg shadow-lg -translate-y-10 md:-translate-y-0">
         {searchParams.get("t") && (
           <p className="col-span-3">
             <span className=" text-green-950">To: </span>
             <span
-              className={`${dancing_script.className} text-lg text-white capitalize animate-pulse`}
+              className={`${dancing_script.className} text-white capitalize`}
             >
               {searchParams.get("t")}
             </span>
           </p>
         )}
+
         <p className="col-span-3 capitalize">
           <span className=" text-green-950">Dear </span>
           <span className="text-white">
@@ -98,7 +251,7 @@ export default function Wish() {
         {searchParams.get("f") && (
           <p className="col-span-3">
             <span className=" text-green-950">From: </span>
-            <span className={`${dancing_script.className} text-white`}>
+            <span className={`${dancing_script.className} text-white text-lg`}>
               {searchParams.get("f")}
             </span>
           </p>
@@ -111,8 +264,8 @@ export default function Wish() {
         </Link>
       </div>
 
-      <div className="fixed bottom-0 left-o w-11/12 md:w-1/2 lg:w-1/3 mx-auto bg-red-500 h-10 rounded-full px-4 py-1 my-2 flex flex-row flex-nowrap justify-start items-center">
-        {!isPlaying && (
+      <div className="fixed bottom-5 md:bottom-0 left-o w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-red-500 h-20 md:h-10 rounded-full px-4 py-1 my-2 flex flex-col md:flex-row flex-nowrap justify-start items-center">
+        {/* {!isPlaying && (
           <span
             onClick={() => {
               audioRef.current?.play();
@@ -126,9 +279,9 @@ export default function Wish() {
               className="text-3xl text-white hover:text-white/80"
             />
           </span>
-        )}
+        )} */}
 
-        {isPlaying && (
+        {/* {isPlaying && (
           <span
             onClick={() => {
               audioRef.current?.pause();
@@ -142,22 +295,26 @@ export default function Wish() {
               className="text-3xl text-white hover:text-white/80"
             />
           </span>
-        )}
+        )} */}
 
         <audio
           ref={audioRef}
           controls
-          className="max-h-full bg-transparent m-1 hidden"
-          loop
+          className="max-h-full bg-transparent m-1"
+          onEnded={() => {
+            if (songIndex === 3) {
+              setSongIndex(0);
+            } else {
+              setSongIndex(songIndex + 1);
+            }
+            console.log("audio ended");
+          }}
         >
-          <source
-            src="/we-wish-you-a-merry-christmas-xmas-background-short-music-30-second-178228.mp3"
-            type="audio/mpeg"
-          />
+          <source src={songLink} type="audio/mpeg" />
         </audio>
 
         <span className="pl-3 text-ellipsis max-w-full max-h-full text-white">
-          We wish you a merry christmas
+          {songName}
         </span>
       </div>
     </main>
