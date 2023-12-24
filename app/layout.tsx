@@ -1,3 +1,4 @@
+import Analytics from "@/components/analytics";
 import "./globals.css";
 import { Dancing_Script } from "next/font/google";
 
@@ -20,6 +21,7 @@ export default function RootLayout({
         className={`${dancing_script.className} min-h-screen max-h-screen overflow-hidden`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
