@@ -219,7 +219,7 @@ export default function Wish() {
       >
         <source src="/video.mp4" type="video/mp4" />
       </video> */}
-      <div className="text-2xl absolute z-10 w-5/6 md:w-3/4  lg:w-1/3 p-4 bg-red-500/80 rounded-lg shadow-lg ">
+      <div className="text-2xl absolute z-10 w-5/6 md:w-3/4  lg:w-1/3 p-4 bg-red-500/80 rounded-lg shadow-lg -translate-y-5 ">
         {searchParams.get("t") && (
           <p className="col-span-3">
             <span className=" text-green-950">To: </span>
