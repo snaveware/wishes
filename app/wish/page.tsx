@@ -20,10 +20,10 @@ enum Relationship {
   Father = "father",
   Son = "son",
   Daughter = "daughter",
-  Colleague = "colleague",
-  Mentor = "mentor",
   Brother = "brother",
   Sister = "sister",
+  Colleague = "colleague",
+  Mentor = "mentor",
   // You can add more relationships here
 }
 
