@@ -9,16 +9,16 @@ const dancing_script = Rubik_Bubbles({ weight: "400", subsets: ["latin"] });
 
 enum Relationship {
   Friend = "friend",
-  Friends = "friends",
   Partner = "partner",
   Mother = "mother",
   Father = "father",
   Son = "son",
   Daughter = "daughter",
-  Colleague = "colleague",
-  Mentor = "mentor",
   Brother = "brother",
   Sister = "sister",
+  Classmates = "classmates",
+  Colleagues = "colleagues",
+  Mentor = "mentor",
   Hero = "hero",
   // You can add more relationships here
 }

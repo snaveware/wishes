@@ -22,8 +22,10 @@ enum Relationship {
   Daughter = "daughter",
   Brother = "brother",
   Sister = "sister",
-  Colleague = "colleague",
+  Classmates = "classmates",
+  Colleagues = "colleagues",
   Mentor = "mentor",
+  Hero = "hero",
   // You can add more relationships here
 }
 

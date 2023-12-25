@@ -27,6 +27,34 @@ body {
   transition: all 1s;
 }
 
+::-webkit-scrollbar {
+  @apply w-2 h-0.5;
+}
+
+::-webkit-scrollbar-track {
+  margin-block: 0.5em;
+  border-radius: 100vw;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 100vw;
+  @apply bg-white/50;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  /* color: red;
+  background: yellow; */
+  @apply bg-white/80 text-green-950;
+}
+
+::selection {
+  /* color: red;
+  background: yellow; */
+  @apply bg-white/80 text-green-950;
+}
+
 .loader {
   width: 150px;
   height: 150px;
