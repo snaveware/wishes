@@ -17,7 +17,9 @@ enum Relationship {
   Daughter = "daughter",
   Brother = "brother",
   Sister = "sister",
+  Classmate = "classmate",
   Classmates = "classmates",
+  Colleague = "colleague",
   Colleagues = "colleagues",
   Mentor = "mentor",
   Hero = "hero",
@@ -109,9 +111,10 @@ export default function Home() {
           />
         </div>
         <div className="p-2 flex flex-row flex-wrap max-w-full overflow-y-auto bg-blue">
-          {Object.values(Relationship).map((_relationship) => {
+          {Object.values(Relationship).map((_relationship, index) => {
             return (
               <span
+                key={index}
                 onClick={() => {
                   setRelationship(_relationship);
                   localStorage.setItem("relationship", _relationship as string);

@@ -11,6 +11,7 @@ export default {
 
   daughter: `Watching you grow and glow this year has been the best gift I have received. In this christmas I wish you a season of blessings, happiness, and endless possibilities in the New Year.`,
 
+  colleague: `It has been a great blessing having you by my side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
   colleagues: `It has been a great blessing having you by my side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
 
   mentor: `Your guidance has been invaluable. Wishing you a season filled with inspiration and a New Year brimming with new successes.`,
@@ -20,6 +21,9 @@ export default {
   sister: `Your presence makes every moment brighter. The the memories of the moments we have shared this year have made the year worth living. Wishing you joy, love, and beautiful moments this christmas and in the coming year.`,
 
   hero: "You have been my hero this year. Wishing you joy, peace, and endless inspiration this festive season. Your light shines bright in our lives. Cheers to a Merry Christmas and a spectacular New Year ahead!",
+  classmate:
+    "Wishing you a joyous holiday season filled with laughter and cherished moments with loved ones. Here's to a fantastic New Year ahead, filled with success in our endeavors, and unforgettable memories in the classroom and beyond!",
+
   classmates:
     "Wishing you all a joyous holiday season filled with laughter and cherished moments with loved ones. Here's to a fantastic New Year ahead, filled with success in our endeavors, and unforgettable memories in the classroom and beyond!",
   // You can continue adding more relationships and their personalized messages
