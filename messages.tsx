@@ -11,8 +11,8 @@ export default {
 
   daughter: `Watching you grow and glow this year has been the best gift I have received. In this christmas I wish you a season of blessings, happiness, and endless possibilities in the New Year.`,
 
-  colleague: `It has been a great blessing having you by my side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
-  colleagues: `It has been a great blessing having you by my side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
+  colleague: `It has been a great blessing working by your side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
+  colleagues: `It has been a great blessing working by your side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
 
   mentor: `Your guidance has been invaluable. Wishing you a season filled with inspiration and a New Year brimming with new successes.`,
 
