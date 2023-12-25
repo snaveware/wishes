@@ -9,7 +9,7 @@ export default {
 
   son: `My bright and amazing son, It has been another great year having the privilege to call you my sone. May this holiday season fill your heart with wonder and joy. Here's to new adventures in the coming year.`,
 
-  daughter: `Your laughter fills our hearts with joy. Watching you grow and glow this year has been the best gift I have received. I'm proud of the person you are turning out to be. In this christmas I wish you a season of blessings, happiness, and endless possibilities in the New Year.`,
+  daughter: `Watching you grow and glow this year has been the best gift I have received. In this christmas I wish you a season of blessings, happiness, and endless possibilities in the New Year.`,
 
   colleagues: `It has been a great blessing having you by my side this year. As we celebrate this festive season and close the year, Warmest wishes May the coming year be filled with achievements and exciting opportunities.`,
 
@@ -21,6 +21,6 @@ export default {
 
   hero: "You have been my hero this year. Wishing you joy, peace, and endless inspiration this festive season. Your light shines bright in our lives. Cheers to a Merry Christmas and a spectacular New Year ahead!",
   classmates:
-    "Wishing you all a joyous holiday season filled with laughter and cherished moments with loved ones. Here's to a fantastic New Year ahead, filled with shared adventures, success in our endeavors, and unforgettable memories in the classroom and beyond!",
+    "Wishing you all a joyous holiday season filled with laughter and cherished moments with loved ones. Here's to a fantastic New Year ahead, filled with success in our endeavors, and unforgettable memories in the classroom and beyond!",
   // You can continue adding more relationships and their personalized messages
 };
