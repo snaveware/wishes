@@ -11,6 +11,7 @@ import Link from "next/link";
 import { IoPlayOutline } from "react-icons/io5";
 import { useSearchParams } from "next/navigation";
 import messages from "@/messages";
+import { FaLongArrowAltRight } from "react-icons/fa";
 const dancing_script = Rubik_Bubbles({ weight: "400", subsets: ["latin"] });
 
 enum Relationship {
@@ -265,7 +266,8 @@ export default function Wish() {
           href={`/`}
           className="shadow-md mt-3 flex flex-row flex-nowrap justify-center items-center w-full col-span-3 cursor-pointer px-4 py-1 rounded-full bg-white hover:bg-white/80 active:bg-white/90"
         >
-          <span>Spread Wishes</span>
+          <span className="mr-2">Spread Wishes</span>
+          <FaLongArrowAltRight width={20} height={20} className="text-xl" />
         </Link>
       </div>
 
